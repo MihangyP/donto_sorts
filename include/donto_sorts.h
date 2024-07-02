@@ -13,5 +13,7 @@ enum	e_bool
 
 /* errors management fuctions prototypes */
 void	handle_args_errors(int ac, char **av);
+/* sort algorithms prototypes */
+void	bubble_sort(int *tab, int size);
 
 #endif

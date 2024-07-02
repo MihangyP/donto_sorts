@@ -1,6 +1,6 @@
 ### ARGUMENTS
 NAME = donto_sort
-SRC_FILES = src/main.c src/errors.c
+SRC_FILES = src/main.c src/errors.c src/bubble_sort.c
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -I./include
