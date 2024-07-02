@@ -2,9 +2,9 @@
 
 #### Quick start
 ```console
-./donto_sort <sort_algorithm_name>
+./donto_sort <sort_algorithm_name> <...integers>
 ```
 example:
 ```console
-./donto_sort Bubble_sort
+./donto_sort Bubble_sort 69 0 6969 -9 666
 ```

@@ -22,6 +22,8 @@ int	main(int ac, char **av)
 	}
 	if (strcmp(av[1], "Bubble_sort") == 0)
 		bubble_sort(tab, size);
+	else if (strcmp(av[1], "Insertion_sort") == 0)
+		insertion_sort(tab, size);
 	else
 		printf("TODO\n");
 	for (int i = 0; i < size; ++i)
