@@ -43,6 +43,8 @@ int	main(int ac, char **av)
 		exec_and_show(insertion_sort, tab, size, INSERTION_SORT_DESCRIPTION, "O(n^2)");
 	else if (strcmp(av[1], "Selection_sort") == 0)
 		exec_and_show(selection_sort, tab, size, INSERTION_SORT_DESCRIPTION, "O(n^2)");
+	else if (strcmp(av[1], "Counting_sort") == 0)
+		exec_and_show(counting_sort, tab, size, INSERTION_SORT_DESCRIPTION, "O(n^2)");
 	else
 		printf("TODO\n");
 	free(tab);

@@ -22,23 +22,26 @@ static void	show_usage_message(int ac, size_t is_wrong)
 			"- Quicksort\n"
 			"- Shell_sort\n"
 			"- Merge_sort\n"
-			"- Selection_sort\n");
+			"- Selection_sort\n"
+      "- Counting_sort\n");
 } 
 
+#define CAPACITY 7
 static size_t	is_wrong_argument(char **av, int ac)
 {
-	char	*sort_algorithms_names[6] = {"Bubble_sort",
+	char	*sort_algorithms_names[CAPACITY] = {"Bubble_sort",
 											"Insertion_sort",
 											"Quick_sort",
 											"Shell_sort",
 											"Merge_sort",
-											"Selection_sort"};
+											"Selection_sort",
+                      "Counting_sort"};
 	int		i;
 	int		j;
 	char	*sort_algo_name;
 
 	i = -1;
-	while (++i < 6)
+	while (++i < CAPACITY)
 	{
 		sort_algo_name = sort_algorithms_names[i];
 		if (strcmp(av[1], sort_algo_name) == 0)

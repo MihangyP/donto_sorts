@@ -22,5 +22,6 @@ void	handle_args_errors(int ac, char **av);
 void	bubble_sort(int *tab, int size);
 void	insertion_sort(int *tab, int size);
 void	selection_sort(int *tab, int size);
+void  counting_sort(int *tab, int size);
 
 #endif
