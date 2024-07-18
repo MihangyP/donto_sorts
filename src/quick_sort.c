@@ -1,114 +1,54 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <donto_sorts.h>
 
-/* quick sort in Python */
-/*
-def quicksort(array):
-	if len(array) < 2:
-		return array;
-	else:
-		pivot = array[0];
-		less = [i for i in array[1:] if i <= pivot]
-		greater = [i kkk];
-	return quicksort(less) + pivot + quicksort(greater)
-*/
-
-int	count_less_size(int *tab, int size, int pivot)
+void swap(int* a, int* b)
 {
-	int i = 0;
-	int counter = 0;
-	while (i < size)
-	{
-		if (tab[i] <= pivot)
-			++counter;
-		++i;
-	}
-	return (counter);
+    int tmp;
+
+    tmp = *a;
+    *a = *b;
+    *b = tmp;
 }
 
-int	count_greater_size(int *tab, int size, int pivot)
+int partition(int arr[], int low, int high)
 {
-	int i = 0;
-	int counter = 0;
-	while (i < size)
-	{
-		if (tab[i] > pivot)
-			++counter;
-		++i;
-	}
-	return (counter);
+    // choose the pivot
+    int pivot = arr[high];
+
+    // Index of smaller element and Indicate
+    // the right position of pivot found so far
+    int i = (low - 1);
+
+    for (int j = low; j <= high - 1; j++) {
+        // If current element is smaller than the pivot
+        if (arr[j] < pivot) {
+            // Increment index of smaller element
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return (i + 1);
 }
 
-void	print_tab(int *tab, int size)
+// The Quicksort function Implement
+
+void run_quick_sort(int arr[], int low, int high)
 {
-	for (int i = 0; i < size; ++i)
-		printf("%d ", tab[i]);
+    // when low is less than high
+    if (low < high) {
+        // pi is the partition return index of pivot
+
+        int pivot_index = partition(arr, low, high);
+
+        // Recursion Call
+        // smaller element than pivot goes left and
+        // higher element goes right
+        run_quick_sort(arr, low, pivot_index - 1);
+        run_quick_sort(arr, pivot_index + 1, high);
+    }
 }
 
-int	*quick_sort(int *tab, int size)
+void quick_sort(int *tab, int size)
 {
-	int i;
-	int j;
-	int pivot;
-	int size_less;
-	int size_greater;
-	int *less = NULL;
-	int *greater = NULL;
-	if (NULL == tab || size == 0)	
-		return (NULL);
-	if (size == 1)
-		return (tab);
-	else
-	{
-		pivot = tab[0];
-		size_less = count_less_size(tab, size, pivot);
-		if (size_less > 0)
-		{
-			less = malloc(size_less * sizeof(int));
-			if (NULL == less)
-				return (NULL);
-			i = -1;
-			j = 0;
-			while (++i < size)
-			{
-				if (tab[i] <= pivot)
-				{
-					less[j] = tab[i];
-					++j;
-				}
-			}
-		}
-		size_greater = count_greater_size(tab, size, pivot);
-		if (size_greater > 0)
-		{
-			greater = malloc(size_greater * sizeof(int));
-			if (NULL == greater)
-				return (NULL);
-			i = -1;
-			j = 0;
-			while (++i < size)
-			{
-				if (tab[i] > pivot)
-				{
-					greater[j] = tab[i];
-					++j;
-				}
-			}
-		}
-	}
-	/*print_tab(less, size_less);*/
-	/*printf("\n===========\n");*/
-	/*print_tab(greater, size_greater);*/
-	/*return (NULL);*/
-	return (assembling(quick_sort(less, size_less), pivot, quick_sort(greater, size_greater)));
-}
-
-int main(void)
-{
-	int tab[5] = {66, 1, -9, 10, 69};
-	/*
-	for (int i = 0; i < 5; ++i)
-		printf("%d ", tab[i]);
-	*/
-	quick_sort(tab, 5);
+	run_quick_sort(tab, 0, size - 1);
 }
