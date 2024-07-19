@@ -1,12 +1,11 @@
 #include <donto_sorts.h>
 
-void	insertion_sort(int *tab, int size)
+void	insertion_sort(int *tab, int size, bool visualizer)
 {
 	if (NULL == tab || size == 0)
 		return ;
 	int i;
 	int	j;
-	int	tmp;
 
 	i = 0;
 	while (++i < size)
@@ -14,9 +13,15 @@ void	insertion_sort(int *tab, int size)
 		j = i; 
 		while (j > 0 && tab[j - 1] > tab[j])
 		{
-			tmp = tab[j - 1];
-			tab[j - 1] = tab[j];
-			tab[j] = tmp;
+			swap(&tab[j - 1], &tab[j]);
+			if (visualizer)
+			{
+				BeginDrawing();
+				ClearBackground(RAYWHITE);
+				draw_items(tab, size, &tab[j - 1], &tab[j]);
+				sleep(1);
+				EndDrawing();
+			}
 			--j;
 		}
 	}

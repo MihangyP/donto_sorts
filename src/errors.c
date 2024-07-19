@@ -15,27 +15,23 @@ static void	show_usage_message(int ac, size_t is_wrong)
 		if (is_wrong)
 			printf("ERROR: Wrong argument name\n");
 	}
-	printf("Usage: ./donto_sort <sort_algorithm_name> <...integer>\n");
+	printf("Usage: ./donto_sort <sort_algorithm_name> <...integers>\n");
 	printf("Available sort_algorithm_name:\n");
 	printf("- Bubble_sort\n"
 			"- Insertion_sort\n"
 			"- Quicksort\n"
-			"- Shell_sort\n"
-			"- Merge_sort\n"
 			"- Selection_sort\n"
-      "- Counting_sort\n");
+      		"- Counting_sort\n");
 } 
 
-#define CAPACITY 7
+#define CAPACITY 5
 static size_t	is_wrong_argument(char **av, int ac)
 {
 	char	*sort_algorithms_names[CAPACITY] = {"Bubble_sort",
 											"Insertion_sort",
 											"Quick_sort",
-											"Shell_sort",
-											"Merge_sort",
 											"Selection_sort",
-                      "Counting_sort"};
+											"Counting_sort"};
 	int		i;
 	int		j;
 	char	*sort_algo_name;

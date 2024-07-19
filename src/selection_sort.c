@@ -11,33 +11,33 @@ static size_t	is_min(int n, int *tab, int i, int size)
 	return (1);
 }
 
-void	selection_sort(int *tab, int size)
+void	selection_sort(int *tab, int size, bool visualizer)
 {
 	if (NULL == tab || size == 0)
 		return ;
 	int	i;
 	int	j;
 	int	t;
-	int	tmp;
-	int	min;
 
-	i = 0;
-	while (i < size)
+	i = -1;
+	while (++i < size)
 	{
 		j = i;
 		t = j;
 		while (j < size)
 		{
 			if (is_min(tab[j], tab, i, size))
-			{
-				min = tab[j];
 				t = j;
-			}
 			j++;
 		}
-		tmp = tab[i];
-		tab[i] = min;
-		tab[t] = tmp;
-		++i;
+		swap(&tab[i], &tab[t]);
+		if (visualizer)
+		{
+			BeginDrawing();
+			ClearBackground(RAYWHITE);
+			draw_items(tab, size, &tab[i], &tab[t]);
+			sleep(1);
+			EndDrawing();
+		}
 	}
 }

@@ -1,17 +1,18 @@
 ### ARGUMENTS
 NAME = donto_sort
-SRC_FILES = src/main.c src/errors.c src/bubble_sort.c src/insertion_sort.c src/selection_sort.c \
-						src/counting_sort.c
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-INCLUDE = -I./include
+FILES = main.c errors.c bubble_sort.c insertion_sort.c selection_sort.c \
+		counting_sort.c utils.c quick_sort.c
+SRC_FILES = $(addprefix src/, $(FILES))
+CC = cc -g
+CFLAGS = -Wall -Wextra # -Werror
+INCLUDE = -I./include -I./raylib/include
 RM = rm -rf
 
 ### RULES
 all: $(NAME)
 
 $(NAME): $(SRC_FILES)
-	$(CC) $(CFLAGS) $(INCLUDE) $(SRC_FILES) -o $(NAME)
+	$(CC) $(CFLAGS) $(INCLUDE) $(SRC_FILES) -o $(NAME) -Lraylib/lib -lraylib -lm
 
 clean:
 	$(RM) *.o

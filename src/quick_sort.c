@@ -1,54 +1,55 @@
 #include <donto_sorts.h>
 
-void swap(int* a, int* b)
+int partition(int *tab, int low, int high, int size, bool visualizer)
 {
-    int tmp;
+    int pivot;
+    int i;
+	int j;
 
-    tmp = *a;
-    *a = *b;
-    *b = tmp;
-}
-
-int partition(int arr[], int low, int high)
-{
-    // choose the pivot
-    int pivot = arr[high];
-
-    // Index of smaller element and Indicate
-    // the right position of pivot found so far
-    int i = (low - 1);
-
-    for (int j = low; j <= high - 1; j++) {
-        // If current element is smaller than the pivot
-        if (arr[j] < pivot) {
-            // Increment index of smaller element
+	pivot = tab[high];
+	i = low - 1;
+	j = low - 1;
+	while (++j <= high)
+	{
+        if (tab[j] < pivot) {
             i++;
-            swap(&arr[i], &arr[j]);
+            swap(&tab[i], &tab[j]);
+			if (visualizer)
+			{
+				BeginDrawing();
+				ClearBackground(RAYWHITE);
+				draw_items(tab, size, &tab[i], &tab[j]);
+				sleep(1);
+				EndDrawing();
+			}
         }
-    }
-    swap(&arr[i + 1], &arr[high]);
+	}
+    swap(&tab[i + 1], &tab[high]);
+	if (visualizer)
+	{
+		BeginDrawing();
+		ClearBackground(RAYWHITE);
+		draw_items(tab, size, &tab[i + 1], &tab[high]);
+		sleep(1);
+		EndDrawing();
+	}
     return (i + 1);
 }
 
-// The Quicksort function Implement
-
-void run_quick_sort(int arr[], int low, int high)
+void run_quick_sort(int *tab, int low, int high, int size, bool visualizer)
 {
-    // when low is less than high
+	int pivot_index;
+
     if (low < high) {
-        // pi is the partition return index of pivot
-
-        int pivot_index = partition(arr, low, high);
-
-        // Recursion Call
-        // smaller element than pivot goes left and
-        // higher element goes right
-        run_quick_sort(arr, low, pivot_index - 1);
-        run_quick_sort(arr, pivot_index + 1, high);
+        pivot_index = partition(tab, low, high, size, visualizer);
+        run_quick_sort(tab, low, pivot_index - 1, size, visualizer);
+        run_quick_sort(tab, pivot_index + 1, high, size, visualizer);
     }
 }
 
-void quick_sort(int *tab, int size)
+void quick_sort(int *tab, int size, bool visualizer)
 {
-	run_quick_sort(tab, 0, size - 1);
+	if (size == 0 || NULL == tab)
+		return ;
+	run_quick_sort(tab, 0, size - 1, size, visualizer);
 }

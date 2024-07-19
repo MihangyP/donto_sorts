@@ -1,19 +1,6 @@
 #include <donto_sorts.h>
 
-int find_max(int *tab, int size)
-{
-  int i = 0;
-  int max = tab[i];
-  while (i < size)
-  {
-    if (tab[i] > max)
-      max = tab[i];
-    ++i;
-  }
-  return (max);
-}
-
-void  counting_sort(int *tab, int size)
+void  counting_sort(int *tab, int size, bool visualizer)
 {
   if (NULL == tab && size == 0)
     return ;
@@ -23,9 +10,11 @@ void  counting_sort(int *tab, int size)
   int j;
   int i;
   max = find_max(tab, size);
-  tmp_tab = malloc(max * sizeof(int));
+  tmp_tab = malloc((max + 1) * sizeof(int));
   if (NULL == tmp_tab)
     return ;
+  for (i = 0; i <= max; ++i)
+	  tmp_tab[i] = 0;
   i = -1;
   while (++i < size)
     tmp_tab[tab[i]]++; 

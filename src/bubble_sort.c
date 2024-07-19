@@ -1,13 +1,11 @@
 #include <donto_sorts.h>
 
-/* Bubble sort implementation*/
-void	bubble_sort(int *tab, int size)
+void	bubble_sort(int *tab, int size, bool visualizer)
 {
 	if (NULL == tab || 0 == size)
 		return ;
 	int	i;
 	int	j;
-	int	tmp;
 
 	i = -1;
 	while (++i < size - 1)
@@ -17,9 +15,15 @@ void	bubble_sort(int *tab, int size)
 		{
 			if (tab[j] > tab[j + 1])
 			{
-				tmp = tab[j];
-				tab[j] = tab[j + 1];
-				tab[j + 1] = tmp;
+				swap(&tab[j], &tab[j + 1]);
+				if (visualizer)
+				{
+					BeginDrawing();
+					ClearBackground(RAYWHITE);
+					draw_items(tab, size, &tab[j], &tab[j + 1]);
+					sleep(1);
+					EndDrawing();
+				}
 			}
 		}
 	}
