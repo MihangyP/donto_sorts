@@ -16,10 +16,10 @@ void	bubble_sort(int *tab, int size, bool visualizer)
 			if (tab[j] > tab[j + 1])
 			{
 				swap(&tab[j], &tab[j + 1]);
-				if (visualizer)
+				if (visualizer == WITH_VISUALIZER)
 				{
 					BeginDrawing();
-					ClearBackground(RAYWHITE);
+					ClearBackground(BACKGROUND_COLOR);
 					draw_items(tab, size, &tab[j], &tab[j + 1]);
 					sleep(1);
 					EndDrawing();

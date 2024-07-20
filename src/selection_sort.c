@@ -31,10 +31,10 @@ void	selection_sort(int *tab, int size, bool visualizer)
 			j++;
 		}
 		swap(&tab[i], &tab[t]);
-		if (visualizer)
+		if (visualizer == WITH_VISUALIZER)
 		{
 			BeginDrawing();
-			ClearBackground(RAYWHITE);
+			ClearBackground(BACKGROUND_COLOR);
 			draw_items(tab, size, &tab[i], &tab[t]);
 			sleep(1);
 			EndDrawing();

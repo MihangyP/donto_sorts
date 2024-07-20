@@ -14,10 +14,10 @@ void	insertion_sort(int *tab, int size, bool visualizer)
 		while (j > 0 && tab[j - 1] > tab[j])
 		{
 			swap(&tab[j - 1], &tab[j]);
-			if (visualizer)
+			if (visualizer == WITH_VISUALIZER)
 			{
 				BeginDrawing();
-				ClearBackground(RAYWHITE);
+				ClearBackground(BACKGROUND_COLOR);
 				draw_items(tab, size, &tab[j - 1], &tab[j]);
 				sleep(1);
 				EndDrawing();

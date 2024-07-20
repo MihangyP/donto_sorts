@@ -14,10 +14,10 @@ int partition(int *tab, int low, int high, int size, bool visualizer)
         if (tab[j] < pivot) {
             i++;
             swap(&tab[i], &tab[j]);
-			if (visualizer)
+			if (visualizer == WITH_VISUALIZER)
 			{
 				BeginDrawing();
-				ClearBackground(RAYWHITE);
+				ClearBackground(BACKGROUND_COLOR);
 				draw_items(tab, size, &tab[i], &tab[j]);
 				sleep(1);
 				EndDrawing();
@@ -25,10 +25,10 @@ int partition(int *tab, int low, int high, int size, bool visualizer)
         }
 	}
     swap(&tab[i + 1], &tab[high]);
-	if (visualizer)
+	if (visualizer == WITH_VISUALIZER)
 	{
 		BeginDrawing();
-		ClearBackground(RAYWHITE);
+		ClearBackground(BACKGROUND_COLOR);
 		draw_items(tab, size, &tab[i + 1], &tab[high]);
 		sleep(1);
 		EndDrawing();
