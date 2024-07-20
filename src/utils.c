@@ -11,9 +11,9 @@ void	print_result(int *tab, int size)
 void	exec_and_show(void (*f)(int *, int, bool), int *tab, int size, char *desc, char *complexity)
 {
 	f(tab, size, NO_VISUALIZER);
-	printf("Description:\n %s\n", desc);
-	printf("Time complexity: %s\n", complexity);
-	printf("Result:\n ==> ");
+	printf("\033[1;32mDescription:\033[0m\n %s\n", desc);
+	printf("\033[1;32mTime complexity:\033[0m\n %s\n", complexity);
+	printf("\033[1;32mResult:\033[0m\n ==> ");
 	print_result(tab, size);
 }
 
