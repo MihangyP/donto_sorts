@@ -27,7 +27,9 @@
 /* sort algorithms descriptions */
 # define BUBBLE_SORT_DESCRIPTION "It repeatly steps through a list, compares adjacent elements, and swaps them if they are in the wrong order.\n This process is repeated until the list is sorted"
 # define INSERTION_SORT_DESCRIPTION  "It builds the final sorted list one item at a time, by repeatedly picking the next elementi\n and inserting it into its correct position among the previously sorted elements"
-# define SELECTION_SORT_DESCRIPTION ""
+# define SELECTION_SORT_DESCRIPTION "Selection sort is a simple sorting algorithm that repeatedly finds the minimum elementi \n from the unsorted part of the list and swaps it with the first element of the unsorted part.\n This process continues until the entire list is sorted."
+#define QUICK_SORT_DESCRIPTION "Quick sort is a divide-and-conquer algorithm that picks a pivot element, \n partitions the array around the pivot, and recursively sorts the sub-arrays created by the partition.\n It's efficient with an average time complexity of O(n log n)."
+#define COUNTING_SORT_DESCRIPTION "Counting sort is a non-comparison based sorting algorithm efficient for a limited range of integer inputs. It counts the occurrences of each element, calculates their cumulative sums, and then places elements in their correct positions based on these counts."
 
 /* Array of ints */
 typedef struct s_tab

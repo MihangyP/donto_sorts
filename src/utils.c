@@ -166,11 +166,11 @@ void	run_sort(t_tab *tab, char *name)
 	else if (strcmp(name, "Insertion_sort") == 0)
 		exec_and_show(insertion_sort, tab->data, tab->size, INSERTION_SORT_DESCRIPTION, "O(n^2)");
 	else if (strcmp(name, "Selection_sort") == 0)
-		exec_and_show(selection_sort, tab->data, tab->size, INSERTION_SORT_DESCRIPTION, "O(n^2)");
+		exec_and_show(selection_sort, tab->data, tab->size, SELECTION_SORT_DESCRIPTION, "O(n^2)");
 	else if (strcmp(name, "Counting_sort") == 0)
-		exec_and_show(counting_sort, tab->data, tab->size, INSERTION_SORT_DESCRIPTION, "O(n^2)");
+		exec_and_show(counting_sort, tab->data, tab->size, COUNTING_SORT_DESCRIPTION, "O(n + k)");
 	else if (strcmp(name, "Quick_sort") == 0)
-		exec_and_show(quick_sort, tab->data, tab->size, INSERTION_SORT_DESCRIPTION, "O(n * log(n))");
+		exec_and_show(quick_sort, tab->data, tab->size, QUICK_SORT_DESCRIPTION, "O(n * log(n))");
 	else
 		printf("TODO\n");
 }
