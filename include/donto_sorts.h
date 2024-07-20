@@ -17,9 +17,12 @@
 # define NO_VISUALIZER 0
 
 /* Colors */
-# define BACKGROUND_COLOR GRAY
-# define ITEM_COLOR DARKPURPLE
+# define BACKGROUND_COLOR SKYBLUE
+# define ITEM_COLOR DARKGREEN
 # define SWAP_ITEM_COLOR YELLOW
+
+/* speed sorting in second */
+# define TIME 0.9
 
 /* sort algorithms descriptions */
 # define BUBBLE_SORT_DESCRIPTION "It repeatly steps through a list, compares adjacent elements, and swaps them if they are in the wrong order.\n This process is repeated until the list is sorted"

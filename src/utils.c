@@ -136,7 +136,7 @@ void	show_visualizer(t_tab *tab, char *name)
 		ClearBackground(BACKGROUND_COLOR);
 		draw_items(tab->data, tab->size, NULL, NULL);
 		if (!is_sorted(tab->data, tab->size) && !is_ready_to_sort)
-			DrawText("Press D to start sorting", 190, 200, 20, GOLD);
+			DrawText("Press D to start sorting", 190, 200, 20, BLACK);
 		if (IsKeyPressed(KEY_D))
 			is_ready_to_sort = true;
 		if (is_ready_to_sort)

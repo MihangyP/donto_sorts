@@ -19,7 +19,7 @@ int partition(int *tab, int low, int high, int size, bool visualizer)
 				BeginDrawing();
 				ClearBackground(BACKGROUND_COLOR);
 				draw_items(tab, size, &tab[i], &tab[j]);
-				sleep(1);
+				sleep(TIME);
 				EndDrawing();
 			}
         }
@@ -30,7 +30,7 @@ int partition(int *tab, int low, int high, int size, bool visualizer)
 		BeginDrawing();
 		ClearBackground(BACKGROUND_COLOR);
 		draw_items(tab, size, &tab[i + 1], &tab[high]);
-		sleep(1);
+		sleep(TIME);
 		EndDrawing();
 	}
     return (i + 1);

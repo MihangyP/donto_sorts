@@ -3,12 +3,12 @@
 #### Quick start
 ```console
 $ make
-$ ./donto_sort <sort_algorithm_name$ <...integers$
+$ ./donto_sort <sort_algorithm_name> <...integers>
 ```
 #### To Visualize the algorithm
-Use -v or --visualise option
+Use -v or --visualize option
 ```console
-$ ./donto_sort <sort_alorithm_name$ -v <integers$
+$ ./donto_sort <sort_alorithm_name> -v <integers>
 ```
 examples:
 ```console

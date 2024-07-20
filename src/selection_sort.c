@@ -36,7 +36,7 @@ void	selection_sort(int *tab, int size, bool visualizer)
 			BeginDrawing();
 			ClearBackground(BACKGROUND_COLOR);
 			draw_items(tab, size, &tab[i], &tab[t]);
-			sleep(1);
+			sleep(TIME);
 			EndDrawing();
 		}
 	}

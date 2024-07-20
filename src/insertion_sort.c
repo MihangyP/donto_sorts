@@ -19,7 +19,7 @@ void	insertion_sort(int *tab, int size, bool visualizer)
 				BeginDrawing();
 				ClearBackground(BACKGROUND_COLOR);
 				draw_items(tab, size, &tab[j - 1], &tab[j]);
-				sleep(1);
+				sleep(TIME);
 				EndDrawing();
 			}
 			--j;
