@@ -30,7 +30,6 @@ void	selection_sort(int *tab, int size, bool visualizer)
 				t = j;
 			j++;
 		}
-		swap(&tab[i], &tab[t]);
 		if (visualizer == WITH_VISUALIZER)
 		{
 			BeginDrawing();
@@ -39,5 +38,6 @@ void	selection_sort(int *tab, int size, bool visualizer)
 			sleep(TIME);
 			EndDrawing();
 		}
+		swap(&tab[i], &tab[t]);
 	}
 }

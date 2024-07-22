@@ -22,7 +22,7 @@
 # define SWAP_ITEM_COLOR YELLOW
 
 /* speed sorting in second */
-# define TIME 0.9
+# define TIME 1
 
 /* sort algorithms descriptions */
 # define BUBBLE_SORT_DESCRIPTION "It repeatly steps through a list, compares adjacent elements, and swaps them if they are in the wrong order.\n This process is repeated until the list is sorted"

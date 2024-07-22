@@ -15,7 +15,6 @@ void	bubble_sort(int *tab, int size, bool visualizer)
 		{
 			if (tab[j] > tab[j + 1])
 			{
-				swap(&tab[j], &tab[j + 1]);
 				if (visualizer == WITH_VISUALIZER)
 				{
 					BeginDrawing();
@@ -24,6 +23,7 @@ void	bubble_sort(int *tab, int size, bool visualizer)
 					sleep(TIME);
 					EndDrawing();
 				}
+				swap(&tab[j], &tab[j + 1]);
 			}
 		}
 	}

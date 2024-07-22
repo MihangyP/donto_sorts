@@ -13,7 +13,6 @@ void	insertion_sort(int *tab, int size, bool visualizer)
 		j = i; 
 		while (j > 0 && tab[j - 1] > tab[j])
 		{
-			swap(&tab[j - 1], &tab[j]);
 			if (visualizer == WITH_VISUALIZER)
 			{
 				BeginDrawing();
@@ -22,6 +21,7 @@ void	insertion_sort(int *tab, int size, bool visualizer)
 				sleep(TIME);
 				EndDrawing();
 			}
+			swap(&tab[j - 1], &tab[j]);
 			--j;
 		}
 	}

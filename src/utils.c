@@ -122,11 +122,41 @@ bool	is_sorted(int *tab, int size)
 	return (true);
 }
 
+char	*normalize(char *name)
+{
+	char	*result_name;
+	bool	found;
+	int		i;
+
+	result_name = malloc((strlen(name) + 1) * sizeof(char));
+	if (NULL == result_name)
+		return (NULL);
+	found = false;
+	i = -1;
+	while (name[++i])
+	{
+		if (name[i] == '_')
+		{
+			result_name[i] = ' ';
+			found = true;
+		}
+		else if (found)
+		{
+			result_name[i] = name[i] - 32;
+			found = false;
+		}
+		else
+			result_name[i] = name[i];
+	}
+	result_name[i] = '\0';
+	return (result_name);
+}
+
 void	show_visualizer(t_tab *tab, char *name)
 {
 	bool	is_ready_to_sort;
 
-	InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, name);
+	InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, normalize(name));
 	SetTargetFPS(60);
 	print_result(tab->data, tab->size);
 	while (!WindowShouldClose())

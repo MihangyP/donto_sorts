@@ -1,5 +1,19 @@
 #include <donto_sorts.h>
 
+static int	found_index(int *tab, int size, int nbr)
+{
+	int i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (tab[i] == nbr)
+			break ;
+		++i;
+	}
+	return (i);
+}
+
 void  counting_sort(int *tab, int size, bool visualizer)
 {
   if (NULL == tab && size == 0)
@@ -25,6 +39,16 @@ void  counting_sort(int *tab, int size, bool visualizer)
     t = 0;
     while (t < tmp_tab[i])
     {
+	  int d = found_index(tab, size, i);
+	  if (visualizer)
+	  {
+		  BeginDrawing();
+		  ClearBackground(BACKGROUND_COLOR);
+		  draw_items(tab, size, &tab[j], &tab[d]);
+		  sleep(TIME);
+		  EndDrawing();
+	  }
+	  tab[d] = tab[j];
       tab[j] = i;
       ++t;
       ++j;

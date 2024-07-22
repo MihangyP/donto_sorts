@@ -1,4 +1,4 @@
-### Some sort algorithms implementations in C (WITH VISUALISER)
+### Some sort algorithms implementations in C (WITH A VISUALISER)
 
 #### Quick start
 ```console
