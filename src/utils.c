@@ -30,6 +30,23 @@ int find_max(int *tab, int size)
   return (max);
 }
 
+int	find_min(int *tab, int size)
+{
+	int min;
+	int i;
+
+	i = 0;
+	min = tab[i];
+	++i;
+	while (i < size)
+	{
+		if (tab[i] < min)
+			min = tab[i];
+		++i;
+	}
+	return (min);
+}
+
 void	swap(int *a, int *b)
 {
 	int tmp;
@@ -47,11 +64,13 @@ void	draw_items(int *tab, int size, int *a, int *b)
 	int pos_x;
 	int	pos_y;
 	int max;
+	int min;
 
 	i = -1;
 	width = SCREEN_WIDTH / size;
 	pos_x = 0;
 	max = find_max(tab, size);
+	min = find_min(tab, size);
 	while (++i < size)
 	{
 		if (tab[i] == max)
@@ -59,10 +78,21 @@ void	draw_items(int *tab, int size, int *a, int *b)
 			height = SCREEN_HEIGHT;
 			pos_y = 0;
 		}
+		else if (tab[i] == min)
+		{
+			height = 5;
+			pos_y = SCREEN_HEIGHT - 5;
+		}
 		else
 		{
-			height = (SCREEN_HEIGHT * tab[i]) / max;
-			pos_y = SCREEN_HEIGHT - (SCREEN_HEIGHT * tab[i]) / max;
+			int a = max - min;
+			int b = SCREEN_HEIGHT - 5;
+			int c = max - tab[i];
+			int d = (c * b) / a;
+			height = SCREEN_HEIGHT - d;
+			pos_y = SCREEN_HEIGHT - height;
+			/*height = (SCREEN_HEIGHT * tab[i]) / max;*/
+			/*pos_y = SCREEN_HEIGHT - (SCREEN_HEIGHT * tab[i]) / max;*/
 		}
 		if (a != NULL && b != NULL)
 		{
